@@ -12,10 +12,38 @@
         <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
         <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
         <script type="text/babel">
-            function Header() {
-                return (<h1>La maison jungle</h1>)
+            function Banner() {
+                const text = "La maison jungle"
+                return <h1>{ text.toUpperCase() }</h1>
             }
-            ReactDOM.render(<Header />, document.getElementById('root'))
+
+            function Cart() {
+                const monstera = {
+                    name: "Monstera",
+                    price: 8
+                }
+                const lierre = {
+                    name: "Lierre",
+                    price: 10
+                }
+                const bouquetDeFleurs = {
+                    name: "Bouquet de fleurs",
+                    price: 15
+                }
+                return (
+                    <div>
+                        <h2>Panier</h2>
+                        <ul>
+                            <li>{ monstera.name } : { monstera.price } €</li>
+                            <li>{ lierre.name } : { lierre.price } €</li>
+                            <li>{ bouquetDeFleurs.name } : { bouquetDeFleurs.price } €</li>
+                        </ul>
+                        <p>Total : { monstera.price + lierre.price + bouquetDeFleurs.price } €</p>
+                    </div>
+                )
+            }
+
+            ReactDOM.render(<div><Banner /><Cart /></div>, document.getElementById('root'))
         </script>
     </body>
 </html>
